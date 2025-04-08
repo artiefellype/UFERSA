@@ -1,0 +1,17 @@
+## Uso
+
+- Requisitos: 
+    - certifique-se de ter o python (^3.10) instalado
+    - Certifique-se de ter as bibliotecas Ply (pip install ply) e prettyTable (pip install prettyTable) instaladas  antes de executar o script.
+
+- Entrada: 
+    - Coloque seu código OWL2 no arquivo owl2.txt.
+
+- Execução: 
+    - Execute o script Python (python nome_do_script.py).
+    - python main.py
+    
+- Saída: 
+    - A contagem de tokens reconhecidos será exibida no console e registrada no arquivo analisador_lexico_output.txt.
+    - Os erros serão impressos no terminal
+    - As derivações serão mostradas no arquivo parse.out após a execução do script

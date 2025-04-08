@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Explore sabores únicos, aprenda com receitas premium, conecte-se com a comunidade iFood e assista chefs renomados ao vivo. Uma nova dimensão gastronômica com iFood Gourmet."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ifood Gourmet: Explore, aprenda, desfrute</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo-container">
+        <img src="assets/ifoodglogo.png" alt="" />
+      </div>
+      <div class="items-container">
+        <ul>
+          <li><a href="#home">Início</a></li>
+          <li><a href="#catalog">Catálogo</a></li>
+          <li><a href="#restaurants">Restaurantes</a></li>
+          <li><a href="#contact">Fale conosco</a></li>
+        </ul>
+      </div>
+      <div class="mobile-items-container">
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-button">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </label>
+        <nav>
+          <ul>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#catalog">Catálogo</a></li>
+            <li><a href="#restaurants">Restaurantes</a></li>
+            <li><a href="#contact">Fale conosco</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="home-section">
+        <div class="home-title">
+          <h1>Ifood Gourmet</h1>
+        </div>
+        <div class="home-desc">
+          <p>
+            Saboreie o requinte, aprenda receitas premium e conecte-se com
+            chefs renomados.
+          </p>
+        </div>
+      </section>
+      <div class="separator">
+        <hr />
+      </div>
+      <section id="catalog" class="catalog-section">
+        <div class="catalog-header">
+          <h2>Sabores em destaque</h2>
+          <p>Uma seleção pratos gourmet do nosso catálogo exclusivo.</p>
+        </div>
+        <div
+          id="carouselExampleAutoplaying"
+          class="carousel slide d-md-none"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="card-carousel-container">
+                <div class="card-container">
+                  <div class="card-img">
+                    <img src="assets/carpaccio.png" alt="prato de comida" />
+                  </div>
+                  <div class="card-item">
+                    <h3>Carpaccio</h3>
+                    <div class="card-item-desc-container">
+                      <p>
+                        Finas fatias de carne crua, geralmente carne bovina,
+                        servidas com molho de mostarda, rúcula e queijo
+                        parmesão.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card-carousel-container">
+                <div class="card-container">
+                  <div class="card-img">
+                    <img src="assets/foie-gras.webp" alt="prato de comida" />
+                  </div>
+                  <div class="card-item">
+                    <h3>Foie Gras</h3>
+                    <div class="card-item-desc-container">
+                      <p>
+                        Um patê de fígado de ganso ou pato, frequentemente
+                        servido em pedaços grelhados ou como parte de pratos
+                        sofisticados.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card-carousel-container">
+                <div class="card-container">
+                  <div class="card-img">
+                    <img
+                      src="assets/bouillabaisse.webp"
+                      alt="prato de comida"
+                    />
+                  </div>
+                  <div class="card-item">
+                    <h3>Bouillabaisse</h3>
+                    <div class="card-item-desc-container">
+                      <p>
+                        Uma sopa de peixe tradicional da Provença, na França,
+                        preparada com uma variedade de peixes, frutos do mar e
+                        ervas.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card-carousel-container">
+                <div class="card-container">
+                  <div class="card-img">
+                    <img
+                      src="assets/tournedo-rossini.webp"
+                      alt="prato de comida"
+                    />
+                  </div>
+                  <div class="card-item">
+                    <h3>Tournedo Rossini</h3>
+                    <div class="card-item-desc-container">
+                      <p>
+                        Um prato clássico da culinária francesa que consiste em
+                        filé mignon grelhado, foie gras e molho de trufas.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card-carousel-container">
+                <div class="card-container">
+                  <div class="card-img">
+                    <img src="assets/arroz-de-pato.png" alt="prato de comida" />
+                  </div>
+                  <div class="card-item">
+                    <h3>Arroz de Pato</h3>
+                    <div class="card-item-desc-container">
+                      <p>
+                        Um prato que combina arroz cozido com pato desfiado,
+                        chouriço, bacon, ervilhas e açafrão, assado até dourar.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div class="catalog-desk">
+          <div class="card-carousel-container">
+            <div class="card-container">
+              <div class="card-img">
+                <img src="assets/bouillabaisse.webp" alt="prato de comida" />
+              </div>
+              <div class="card-item">
+                <h3>Bouillabaisse</h3>
+                <div class="card-item-desc-container">
+                  <p>
+                    Uma sopa de peixe tradicional da Provença, na França,
+                    preparada com uma variedade de peixes, frutos do mar e
+                    ervas.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-carousel-container">
+            <div class="card-container">
+              <div class="card-img">
+                <img src="assets/carpaccio.png" alt="prato de comida" />
+              </div>
+              <div class="card-item">
+                <h3>Carpaccio</h3>
+                <div class="card-item-desc-container">
+                  <p>
+                    Finas fatias de carne crua, geralmente carne bovina,
+                    servidas com molho de mostarda, rúcula e queijo parmesão.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-carousel-container">
+            <div class="card-container">
+              <div class="card-img">
+                <img src="assets/foie-gras.webp" alt="prato de comida" />
+              </div>
+              <div class="card-item">
+                <h3>Foie Gras</h3>
+                <div class="card-item-desc-container">
+                  <p>
+                    Um patê de fígado de ganso ou pato, frequentemente servido
+                    em pedaços grelhados ou como parte de pratos sofisticados.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-carousel-container">
+            <div class="card-container">
+              <div class="card-img">
+                <img src="assets/tournedo-rossini.webp" alt="prato de comida" />
+              </div>
+              <div class="card-item">
+                <h3>Tournedo Rossini</h3>
+                <div class="card-item-desc-container">
+                  <p>
+                    Um prato clássico da culinária francesa que consiste em filé
+                    mignon grelhado, foie gras e molho de trufas.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-carousel-container">
+            <div class="card-container">
+              <div class="card-img">
+                <img src="assets/arroz-de-pato.png" alt="prato de comida" />
+              </div>
+              <div class="card-item">
+                <h3>Arroz de Pato</h3>
+                <div class="card-item-desc-container">
+                  <p>
+                    Um prato que combina arroz cozido com pato desfiado,
+                    chouriço, bacon, ervilhas e açafrão, assado até dourar.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-carousel-container">
+            <div class="card-container">
+              <div class="card-img">
+                <img src="assets/risoto-funghi.png" alt="prato de comida" />
+              </div>
+              <div class="card-item">
+                <h3>Risoto Funghi</h3>
+                <div class="card-item-desc-container">
+                  <p>
+                    Um arroz cremoso preparado com cogumelos (funghi), caldo de
+                    galinha, vinho branco, manteiga e queijo parmesão.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="separator">
+        <hr />
+      </div>
+      <section id="restaurants" class="restaurants-section">
+        <div class="restaurants-header">
+          <h2>Seleção de Restaurantes</h2>
+          <p>Explore a variedade de restaurantes de alta qualidade.</p>
+        </div>
+        <table class="rest-table">
+          <tr>
+            <th>Nome</th>
+            <th>Nota</th>
+            <th>Descrição</th>
+          </tr>
+
+          <tr>
+            <td>Olive Garden</td>
+            <td>4.6</td>
+            <td>
+              <input
+                type="checkbox"
+                class="description-checkbox"
+                id="description-olive-garden"
+              />
+              <label
+                for="description-olive-garden"
+                class="show-description-label"
+                >Exibir</label
+              >
+              <div class="description-content">
+                <p>
+                  Restaurante italiano conhecido por suas massas e pães frescos.
+                </p>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Matsuhisa</td>
+            <td>4.8</td>
+            <td>
+              <input
+                type="checkbox"
+                class="description-checkbox"
+                id="description-matsuhisa"
+              />
+              <label for="description-matsuhisa" class="show-description-label"
+                >Exibir</label
+              >
+              <div class="description-content">
+                <p>
+                  Um restaurante de comida japonesa de alta qualidade criado
+                  pelo renomado chef Nobu Matsuhisa.
+                </p>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Le Bernardin</td>
+            <td>4.9</td>
+            <td>
+              <input
+                type="checkbox"
+                class="description-checkbox"
+                id="description-le-bernardin"
+              />
+              <label
+                for="description-le-bernardin"
+                class="show-description-label"
+                >Exibir</label
+              >
+              <div class="description-content">
+                <p>
+                  Restaurante com três estrelas Michelin especializado em frutos
+                  do mar e peixes.
+                </p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Pappadeaux Seafood Kitchen</td>
+            <td>4.7</td>
+            <td>
+              <input
+                type="checkbox"
+                class="description-checkbox"
+                id="description-pappadeaux"
+              />
+              <label for="description-pappadeaux" class="show-description-label"
+                >Exibir</label
+              >
+              <div class="description-content">
+                <p>
+                  Um restaurante especializado em frutos do mar e culinária
+                  cajun.
+                </p>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Per Se</td>
+            <td>4.9</td>
+            <td>
+              <input
+                type="checkbox"
+                class="description-checkbox"
+                id="description-per-se"
+              />
+              <label for="description-per-se" class="show-description-label"
+                >Exibir</label
+              >
+              <div class="description-content">
+                <p>
+                  Um renomado restaurante de alta gastronomia localizado em Nova
+                  York.
+                </p>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>In-N-Out Burger</td>
+            <td>4.5</td>
+            <td>
+              <input
+                type="checkbox"
+                class="description-checkbox"
+                id="description-in-n-out"
+              />
+              <label for="description-in-n-out" class="show-description-label"
+                >Exibir</label
+              >
+              <div class="description-content">
+                <p>
+                  Uma cadeia de fast food famosa por seus hambúrgueres e batatas
+                  fritas.
+                </p>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </section>
+      <div class="separator">
+        <hr />
+      </div>
+      <section id="contact" class="contact-section">
+        <div class="contact-header">
+          <h2>Fale Conosco</h2>
+          <p>Conecte-se, Tire dúvidas e compartilhe suas sugestões com o iFood Gourmet.</p>
+        </div>
+        <div class="form-container">
+          <form onsubmit="onSubmit()">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="message">Mensagem:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="logo-container">
+        <img src="assets/ifoodglogo.png" alt="" />
+      </div>
+      <div class="suport-container">
+        <p>suporte@ifoodgourmet.com</p>
+        <p>(99) 99999-9999</p>
+      </div>
+    </footer>
+    <script>
+      function onSubmit() {
+        alert("Feedback enviado com sucesso!");
+      }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

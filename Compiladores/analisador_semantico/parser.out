@@ -1,0 +1,1686 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> statement
+Rule 1     statement -> primitive_class_declaration statement
+Rule 2     statement -> enumerated_class_declaration statement
+Rule 3     statement -> primitive_class_declaration
+Rule 4     statement -> enumerated_class_declaration
+Rule 5     primitive_class_declaration -> valid_class_declaration valid_equivalent_to_nested valid_subclass_of valid_disjoint_classes valid_individuals
+Rule 6     primitive_class_declaration -> valid_class_declaration valid_equivalent_to_nested valid_subclass_of valid_disjoint_classes
+Rule 7     primitive_class_declaration -> valid_class_declaration valid_equivalent_to_nested valid_subclass_of
+Rule 8     primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_equivalent_to_nested
+Rule 9     primitive_class_declaration -> valid_class_declaration valid_equivalent_to_nested
+Rule 10    primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_disjoint_classes
+Rule 11    primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_disjoint_classes valid_individuals
+Rule 12    primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_equivalent_to_nested valid_disjoint_classes valid_individuals
+Rule 13    primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_equivalent_to_nested valid_disjoint_classes
+Rule 14    primitive_class_declaration -> valid_class_declaration valid_subclass_of
+Rule 15    primitive_class_declaration -> valid_class_declaration
+Rule 16    enumerated_class_declaration -> valid_class_declaration valid_equivalent_to_enum
+Rule 17    valid_equivalent_to_enum -> reserved_classes_declaration special_symbols_declaration equivalent_to_enum_conjunt
+Rule 18    equivalent_to_enum_conjunt -> braces_declaration recursive_equivalent_to_enum_conjunt
+Rule 19    recursive_equivalent_to_enum_conjunt -> class_declaration special_symbols_declaration recursive_equivalent_to_enum_conjunt
+Rule 20    recursive_equivalent_to_enum_conjunt -> class_declaration braces_declaration
+Rule 21    valid_equivalent_to_nested -> reserved_classes_declaration special_symbols_declaration equivalent_to_nested
+Rule 22    valid_equivalent_to_nested -> reserved_classes_declaration special_symbols_declaration equivalent_to_c_classes
+Rule 23    equivalent_to_c_classes -> class_declaration
+Rule 24    equivalent_to_c_classes -> class_declaration reserved_word_declaration equivalent_to_c_classes
+Rule 25    equivalent_to_nested -> class_declaration equivalent_to_nested_separated
+Rule 26    equivalent_to_nested_separated -> reserved_word_declaration equivalent_to_nested_conjunt
+Rule 27    equivalent_to_nested_conjunt -> special_symbols_declaration recursive_equivalent_to_nested_conjunt
+Rule 28    equivalent_to_nested_conjunt -> special_symbols_declaration equivalent_to_conjunt_cardi
+Rule 29    recursive_equivalent_to_nested_conjunt -> properties_declaration reserved_word_declaration recursive_equivalent_to_nested_conjunt_end
+Rule 30    recursive_equivalent_to_nested_conjunt -> properties_declaration reserved_word_declaration equivalent_to_conjunt_cardi
+Rule 31    recursive_equivalent_to_nested_conjunt -> properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration equivalent_to_nested_separated
+Rule 32    recursive_equivalent_to_nested_conjunt -> properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration
+Rule 33    recursive_equivalent_to_nested_conjunt_end -> class_declaration special_symbols_declaration
+Rule 34    recursive_equivalent_to_nested_conjunt_end -> parenthesized_expression
+Rule 35    parenthesized_expression -> special_symbols_declaration recursive_equivalent_to_nested_conjunt special_symbols_declaration
+Rule 36    equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration
+Rule 37    equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration
+Rule 38    equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt
+Rule 39    equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt
+Rule 40    valid_disjoint_classes -> reserved_classes_declaration special_symbols_declaration valid_disjoint_list
+Rule 41    valid_disjoint_list -> class_declaration
+Rule 42    valid_disjoint_list -> class_declaration special_symbols_declaration valid_disjoint_list
+Rule 43    valid_subclass_of -> reserved_classes_declaration special_symbols_declaration valid_subclass_of_list
+Rule 44    valid_subclass_of -> reserved_classes_declaration special_symbols_declaration class_declaration
+Rule 45    valid_subclass_of_list -> class_declaration special_symbols_declaration valid_subclass_of_list
+Rule 46    valid_subclass_of_list -> properties_declaration reserved_word_declaration class_declaration special_symbols_declaration valid_subclass_of_list
+Rule 47    valid_subclass_of_list -> properties_declaration reserved_word_declaration class_declaration
+Rule 48    valid_subclass_of_list -> properties_declaration reserved_word_declaration data_types_declaration special_symbols_declaration valid_subclass_of_list
+Rule 49    valid_subclass_of_list -> properties_declaration reserved_word_declaration data_types_declaration
+Rule 50    valid_subclass_of_list -> properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration valid_subclass_of_list
+Rule 51    valid_subclass_of_list -> properties_declaration size_of_declaration cardinalities_declaration class_declaration
+Rule 52    valid_subclass_of_list -> properties_declaration size_of_declaration special_symbols_declaration subclass_of_classes special_symbols_declaration
+Rule 53    subclass_of_classes -> class_declaration
+Rule 54    subclass_of_classes -> class_declaration reserved_word_declaration subclass_of_classes
+Rule 55    valid_individuals -> reserved_classes_declaration special_symbols_declaration valid_individuals_list
+Rule 56    valid_individuals_list -> individuals_declaration
+Rule 57    valid_individuals_list -> individuals_declaration special_symbols_declaration valid_individuals_list
+Rule 58    valid_class_declaration -> reserved_classes_declaration special_symbols_declaration class_declaration
+Rule 59    class_declaration -> CLASS
+Rule 60    properties_declaration -> PROPERTIES
+Rule 61    individuals_declaration -> INDIVIDUALS
+Rule 62    reserved_classes_declaration -> RESERVED_CLASSES
+Rule 63    reserved_word_declaration -> RESERVED_WORD
+Rule 64    braces_declaration -> BRACES
+Rule 65    special_symbols_declaration -> SPECIAL_SYMBOLS
+Rule 66    data_types_declaration -> DATA_TYPES
+Rule 67    size_of_declaration -> SIZE_OF
+Rule 68    cardinalities_declaration -> CARDINALITIES
+
+Terminals, with rules where they appear
+
+BRACES               : 64
+CARDINALITIES        : 68
+CLASS                : 59
+DATA_TYPES           : 66
+INDIVIDUALS          : 61
+PROPERTIES           : 60
+RESERVED_CLASSES     : 62
+RESERVED_WORD        : 63
+SIZE_OF              : 67
+SPECIAL_SYMBOLS      : 65
+error                : 
+
+Nonterminals, with rules where they appear
+
+braces_declaration   : 18 20
+cardinalities_declaration : 31 32 36 37 38 39 50 51
+class_declaration    : 19 20 23 24 25 31 32 33 41 42 44 45 46 47 50 51 53 54 58
+data_types_declaration : 36 37 38 39 48 49
+enumerated_class_declaration : 2 4
+equivalent_to_c_classes : 22 24
+equivalent_to_conjunt_cardi : 28 30
+equivalent_to_enum_conjunt : 17
+equivalent_to_nested : 21
+equivalent_to_nested_conjunt : 26
+equivalent_to_nested_separated : 25 31
+individuals_declaration : 56 57
+parenthesized_expression : 34
+primitive_class_declaration : 1 3
+properties_declaration : 29 30 31 32 46 47 48 49 50 51 52
+recursive_equivalent_to_enum_conjunt : 18 19
+recursive_equivalent_to_nested_conjunt : 27 35 38 39
+recursive_equivalent_to_nested_conjunt_end : 29
+reserved_classes_declaration : 17 21 22 40 43 44 55 58
+reserved_word_declaration : 24 26 29 30 46 47 48 49 54
+size_of_declaration  : 31 32 50 51 52
+special_symbols_declaration : 17 19 21 22 27 28 31 32 33 35 35 36 36 36 36 36 37 37 37 37 38 38 38 38 38 38 39 39 39 39 39 40 42 43 44 45 46 48 50 52 52 55 57 58
+statement            : 1 2 0
+subclass_of_classes  : 52 54
+valid_class_declaration : 5 6 7 8 9 10 11 12 13 14 15 16
+valid_disjoint_classes : 5 6 10 11 12 13
+valid_disjoint_list  : 40 42
+valid_equivalent_to_enum : 16
+valid_equivalent_to_nested : 5 6 7 8 9 12 13
+valid_individuals    : 5 11 12
+valid_individuals_list : 55 57
+valid_subclass_of    : 5 6 7 8 10 11 12 13 14
+valid_subclass_of_list : 43 45 46 48 50
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . statement
+    (1) statement -> . primitive_class_declaration statement
+    (2) statement -> . enumerated_class_declaration statement
+    (3) statement -> . primitive_class_declaration
+    (4) statement -> . enumerated_class_declaration
+    (5) primitive_class_declaration -> . valid_class_declaration valid_equivalent_to_nested valid_subclass_of valid_disjoint_classes valid_individuals
+    (6) primitive_class_declaration -> . valid_class_declaration valid_equivalent_to_nested valid_subclass_of valid_disjoint_classes
+    (7) primitive_class_declaration -> . valid_class_declaration valid_equivalent_to_nested valid_subclass_of
+    (8) primitive_class_declaration -> . valid_class_declaration valid_subclass_of valid_equivalent_to_nested
+    (9) primitive_class_declaration -> . valid_class_declaration valid_equivalent_to_nested
+    (10) primitive_class_declaration -> . valid_class_declaration valid_subclass_of valid_disjoint_classes
+    (11) primitive_class_declaration -> . valid_class_declaration valid_subclass_of valid_disjoint_classes valid_individuals
+    (12) primitive_class_declaration -> . valid_class_declaration valid_subclass_of valid_equivalent_to_nested valid_disjoint_classes valid_individuals
+    (13) primitive_class_declaration -> . valid_class_declaration valid_subclass_of valid_equivalent_to_nested valid_disjoint_classes
+    (14) primitive_class_declaration -> . valid_class_declaration valid_subclass_of
+    (15) primitive_class_declaration -> . valid_class_declaration
+    (16) enumerated_class_declaration -> . valid_class_declaration valid_equivalent_to_enum
+    (58) valid_class_declaration -> . reserved_classes_declaration special_symbols_declaration class_declaration
+    (62) reserved_classes_declaration -> . RESERVED_CLASSES
+
+    RESERVED_CLASSES shift and go to state 6
+
+    statement                      shift and go to state 1
+    primitive_class_declaration    shift and go to state 2
+    enumerated_class_declaration   shift and go to state 3
+    valid_class_declaration        shift and go to state 4
+    reserved_classes_declaration   shift and go to state 5
+
+state 1
+
+    (0) S' -> statement .
+
+
+
+state 2
+
+    (1) statement -> primitive_class_declaration . statement
+    (3) statement -> primitive_class_declaration .
+    (1) statement -> . primitive_class_declaration statement
+    (2) statement -> . enumerated_class_declaration statement
+    (3) statement -> . primitive_class_declaration
+    (4) statement -> . enumerated_class_declaration
+    (5) primitive_class_declaration -> . valid_class_declaration valid_equivalent_to_nested valid_subclass_of valid_disjoint_classes valid_individuals
+    (6) primitive_class_declaration -> . valid_class_declaration valid_equivalent_to_nested valid_subclass_of valid_disjoint_classes
+    (7) primitive_class_declaration -> . valid_class_declaration valid_equivalent_to_nested valid_subclass_of
+    (8) primitive_class_declaration -> . valid_class_declaration valid_subclass_of valid_equivalent_to_nested
+    (9) primitive_class_declaration -> . valid_class_declaration valid_equivalent_to_nested
+    (10) primitive_class_declaration -> . valid_class_declaration valid_subclass_of valid_disjoint_classes
+    (11) primitive_class_declaration -> . valid_class_declaration valid_subclass_of valid_disjoint_classes valid_individuals
+    (12) primitive_class_declaration -> . valid_class_declaration valid_subclass_of valid_equivalent_to_nested valid_disjoint_classes valid_individuals
+    (13) primitive_class_declaration -> . valid_class_declaration valid_subclass_of valid_equivalent_to_nested valid_disjoint_classes
+    (14) primitive_class_declaration -> . valid_class_declaration valid_subclass_of
+    (15) primitive_class_declaration -> . valid_class_declaration
+    (16) enumerated_class_declaration -> . valid_class_declaration valid_equivalent_to_enum
+    (58) valid_class_declaration -> . reserved_classes_declaration special_symbols_declaration class_declaration
+    (62) reserved_classes_declaration -> . RESERVED_CLASSES
+
+    $end            reduce using rule 3 (statement -> primitive_class_declaration .)
+    RESERVED_CLASSES shift and go to state 6
+
+    primitive_class_declaration    shift and go to state 2
+    statement                      shift and go to state 7
+    enumerated_class_declaration   shift and go to state 3
+    valid_class_declaration        shift and go to state 4
+    reserved_classes_declaration   shift and go to state 5
+
+state 3
+
+    (2) statement -> enumerated_class_declaration . statement
+    (4) statement -> enumerated_class_declaration .
+    (1) statement -> . primitive_class_declaration statement
+    (2) statement -> . enumerated_class_declaration statement
+    (3) statement -> . primitive_class_declaration
+    (4) statement -> . enumerated_class_declaration
+    (5) primitive_class_declaration -> . valid_class_declaration valid_equivalent_to_nested valid_subclass_of valid_disjoint_classes valid_individuals
+    (6) primitive_class_declaration -> . valid_class_declaration valid_equivalent_to_nested valid_subclass_of valid_disjoint_classes
+    (7) primitive_class_declaration -> . valid_class_declaration valid_equivalent_to_nested valid_subclass_of
+    (8) primitive_class_declaration -> . valid_class_declaration valid_subclass_of valid_equivalent_to_nested
+    (9) primitive_class_declaration -> . valid_class_declaration valid_equivalent_to_nested
+    (10) primitive_class_declaration -> . valid_class_declaration valid_subclass_of valid_disjoint_classes
+    (11) primitive_class_declaration -> . valid_class_declaration valid_subclass_of valid_disjoint_classes valid_individuals
+    (12) primitive_class_declaration -> . valid_class_declaration valid_subclass_of valid_equivalent_to_nested valid_disjoint_classes valid_individuals
+    (13) primitive_class_declaration -> . valid_class_declaration valid_subclass_of valid_equivalent_to_nested valid_disjoint_classes
+    (14) primitive_class_declaration -> . valid_class_declaration valid_subclass_of
+    (15) primitive_class_declaration -> . valid_class_declaration
+    (16) enumerated_class_declaration -> . valid_class_declaration valid_equivalent_to_enum
+    (58) valid_class_declaration -> . reserved_classes_declaration special_symbols_declaration class_declaration
+    (62) reserved_classes_declaration -> . RESERVED_CLASSES
+
+    $end            reduce using rule 4 (statement -> enumerated_class_declaration .)
+    RESERVED_CLASSES shift and go to state 6
+
+    enumerated_class_declaration   shift and go to state 3
+    statement                      shift and go to state 8
+    primitive_class_declaration    shift and go to state 2
+    valid_class_declaration        shift and go to state 4
+    reserved_classes_declaration   shift and go to state 5
+
+state 4
+
+    (5) primitive_class_declaration -> valid_class_declaration . valid_equivalent_to_nested valid_subclass_of valid_disjoint_classes valid_individuals
+    (6) primitive_class_declaration -> valid_class_declaration . valid_equivalent_to_nested valid_subclass_of valid_disjoint_classes
+    (7) primitive_class_declaration -> valid_class_declaration . valid_equivalent_to_nested valid_subclass_of
+    (8) primitive_class_declaration -> valid_class_declaration . valid_subclass_of valid_equivalent_to_nested
+    (9) primitive_class_declaration -> valid_class_declaration . valid_equivalent_to_nested
+    (10) primitive_class_declaration -> valid_class_declaration . valid_subclass_of valid_disjoint_classes
+    (11) primitive_class_declaration -> valid_class_declaration . valid_subclass_of valid_disjoint_classes valid_individuals
+    (12) primitive_class_declaration -> valid_class_declaration . valid_subclass_of valid_equivalent_to_nested valid_disjoint_classes valid_individuals
+    (13) primitive_class_declaration -> valid_class_declaration . valid_subclass_of valid_equivalent_to_nested valid_disjoint_classes
+    (14) primitive_class_declaration -> valid_class_declaration . valid_subclass_of
+    (15) primitive_class_declaration -> valid_class_declaration .
+    (16) enumerated_class_declaration -> valid_class_declaration . valid_equivalent_to_enum
+    (21) valid_equivalent_to_nested -> . reserved_classes_declaration special_symbols_declaration equivalent_to_nested
+    (22) valid_equivalent_to_nested -> . reserved_classes_declaration special_symbols_declaration equivalent_to_c_classes
+    (43) valid_subclass_of -> . reserved_classes_declaration special_symbols_declaration valid_subclass_of_list
+    (44) valid_subclass_of -> . reserved_classes_declaration special_symbols_declaration class_declaration
+    (17) valid_equivalent_to_enum -> . reserved_classes_declaration special_symbols_declaration equivalent_to_enum_conjunt
+    (62) reserved_classes_declaration -> . RESERVED_CLASSES
+
+  ! shift/reduce conflict for RESERVED_CLASSES resolved as shift
+    $end            reduce using rule 15 (primitive_class_declaration -> valid_class_declaration .)
+    RESERVED_CLASSES shift and go to state 6
+
+  ! RESERVED_CLASSES [ reduce using rule 15 (primitive_class_declaration -> valid_class_declaration .) ]
+
+    valid_equivalent_to_nested     shift and go to state 9
+    valid_subclass_of              shift and go to state 10
+    valid_equivalent_to_enum       shift and go to state 11
+    reserved_classes_declaration   shift and go to state 12
+
+state 5
+
+    (58) valid_class_declaration -> reserved_classes_declaration . special_symbols_declaration class_declaration
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 13
+
+state 6
+
+    (62) reserved_classes_declaration -> RESERVED_CLASSES .
+
+    SPECIAL_SYMBOLS reduce using rule 62 (reserved_classes_declaration -> RESERVED_CLASSES .)
+
+
+state 7
+
+    (1) statement -> primitive_class_declaration statement .
+
+    $end            reduce using rule 1 (statement -> primitive_class_declaration statement .)
+
+
+state 8
+
+    (2) statement -> enumerated_class_declaration statement .
+
+    $end            reduce using rule 2 (statement -> enumerated_class_declaration statement .)
+
+
+state 9
+
+    (5) primitive_class_declaration -> valid_class_declaration valid_equivalent_to_nested . valid_subclass_of valid_disjoint_classes valid_individuals
+    (6) primitive_class_declaration -> valid_class_declaration valid_equivalent_to_nested . valid_subclass_of valid_disjoint_classes
+    (7) primitive_class_declaration -> valid_class_declaration valid_equivalent_to_nested . valid_subclass_of
+    (9) primitive_class_declaration -> valid_class_declaration valid_equivalent_to_nested .
+    (43) valid_subclass_of -> . reserved_classes_declaration special_symbols_declaration valid_subclass_of_list
+    (44) valid_subclass_of -> . reserved_classes_declaration special_symbols_declaration class_declaration
+    (62) reserved_classes_declaration -> . RESERVED_CLASSES
+
+  ! shift/reduce conflict for RESERVED_CLASSES resolved as shift
+    $end            reduce using rule 9 (primitive_class_declaration -> valid_class_declaration valid_equivalent_to_nested .)
+    RESERVED_CLASSES shift and go to state 6
+
+  ! RESERVED_CLASSES [ reduce using rule 9 (primitive_class_declaration -> valid_class_declaration valid_equivalent_to_nested .) ]
+
+    valid_subclass_of              shift and go to state 15
+    reserved_classes_declaration   shift and go to state 16
+
+state 10
+
+    (8) primitive_class_declaration -> valid_class_declaration valid_subclass_of . valid_equivalent_to_nested
+    (10) primitive_class_declaration -> valid_class_declaration valid_subclass_of . valid_disjoint_classes
+    (11) primitive_class_declaration -> valid_class_declaration valid_subclass_of . valid_disjoint_classes valid_individuals
+    (12) primitive_class_declaration -> valid_class_declaration valid_subclass_of . valid_equivalent_to_nested valid_disjoint_classes valid_individuals
+    (13) primitive_class_declaration -> valid_class_declaration valid_subclass_of . valid_equivalent_to_nested valid_disjoint_classes
+    (14) primitive_class_declaration -> valid_class_declaration valid_subclass_of .
+    (21) valid_equivalent_to_nested -> . reserved_classes_declaration special_symbols_declaration equivalent_to_nested
+    (22) valid_equivalent_to_nested -> . reserved_classes_declaration special_symbols_declaration equivalent_to_c_classes
+    (40) valid_disjoint_classes -> . reserved_classes_declaration special_symbols_declaration valid_disjoint_list
+    (62) reserved_classes_declaration -> . RESERVED_CLASSES
+
+  ! shift/reduce conflict for RESERVED_CLASSES resolved as shift
+    $end            reduce using rule 14 (primitive_class_declaration -> valid_class_declaration valid_subclass_of .)
+    RESERVED_CLASSES shift and go to state 6
+
+  ! RESERVED_CLASSES [ reduce using rule 14 (primitive_class_declaration -> valid_class_declaration valid_subclass_of .) ]
+
+    valid_equivalent_to_nested     shift and go to state 17
+    valid_disjoint_classes         shift and go to state 18
+    reserved_classes_declaration   shift and go to state 19
+
+state 11
+
+    (16) enumerated_class_declaration -> valid_class_declaration valid_equivalent_to_enum .
+
+    RESERVED_CLASSES reduce using rule 16 (enumerated_class_declaration -> valid_class_declaration valid_equivalent_to_enum .)
+    $end            reduce using rule 16 (enumerated_class_declaration -> valid_class_declaration valid_equivalent_to_enum .)
+
+
+state 12
+
+    (21) valid_equivalent_to_nested -> reserved_classes_declaration . special_symbols_declaration equivalent_to_nested
+    (22) valid_equivalent_to_nested -> reserved_classes_declaration . special_symbols_declaration equivalent_to_c_classes
+    (43) valid_subclass_of -> reserved_classes_declaration . special_symbols_declaration valid_subclass_of_list
+    (44) valid_subclass_of -> reserved_classes_declaration . special_symbols_declaration class_declaration
+    (17) valid_equivalent_to_enum -> reserved_classes_declaration . special_symbols_declaration equivalent_to_enum_conjunt
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 20
+
+state 13
+
+    (58) valid_class_declaration -> reserved_classes_declaration special_symbols_declaration . class_declaration
+    (59) class_declaration -> . CLASS
+
+    CLASS           shift and go to state 22
+
+    class_declaration              shift and go to state 21
+
+state 14
+
+    (65) special_symbols_declaration -> SPECIAL_SYMBOLS .
+
+    CLASS           reduce using rule 65 (special_symbols_declaration -> SPECIAL_SYMBOLS .)
+    PROPERTIES      reduce using rule 65 (special_symbols_declaration -> SPECIAL_SYMBOLS .)
+    BRACES          reduce using rule 65 (special_symbols_declaration -> SPECIAL_SYMBOLS .)
+    INDIVIDUALS     reduce using rule 65 (special_symbols_declaration -> SPECIAL_SYMBOLS .)
+    DATA_TYPES      reduce using rule 65 (special_symbols_declaration -> SPECIAL_SYMBOLS .)
+    SPECIAL_SYMBOLS reduce using rule 65 (special_symbols_declaration -> SPECIAL_SYMBOLS .)
+    RESERVED_CLASSES reduce using rule 65 (special_symbols_declaration -> SPECIAL_SYMBOLS .)
+    $end            reduce using rule 65 (special_symbols_declaration -> SPECIAL_SYMBOLS .)
+    CARDINALITIES   reduce using rule 65 (special_symbols_declaration -> SPECIAL_SYMBOLS .)
+    RESERVED_WORD   reduce using rule 65 (special_symbols_declaration -> SPECIAL_SYMBOLS .)
+
+
+state 15
+
+    (5) primitive_class_declaration -> valid_class_declaration valid_equivalent_to_nested valid_subclass_of . valid_disjoint_classes valid_individuals
+    (6) primitive_class_declaration -> valid_class_declaration valid_equivalent_to_nested valid_subclass_of . valid_disjoint_classes
+    (7) primitive_class_declaration -> valid_class_declaration valid_equivalent_to_nested valid_subclass_of .
+    (40) valid_disjoint_classes -> . reserved_classes_declaration special_symbols_declaration valid_disjoint_list
+    (62) reserved_classes_declaration -> . RESERVED_CLASSES
+
+  ! shift/reduce conflict for RESERVED_CLASSES resolved as shift
+    $end            reduce using rule 7 (primitive_class_declaration -> valid_class_declaration valid_equivalent_to_nested valid_subclass_of .)
+    RESERVED_CLASSES shift and go to state 6
+
+  ! RESERVED_CLASSES [ reduce using rule 7 (primitive_class_declaration -> valid_class_declaration valid_equivalent_to_nested valid_subclass_of .) ]
+
+    valid_disjoint_classes         shift and go to state 23
+    reserved_classes_declaration   shift and go to state 24
+
+state 16
+
+    (43) valid_subclass_of -> reserved_classes_declaration . special_symbols_declaration valid_subclass_of_list
+    (44) valid_subclass_of -> reserved_classes_declaration . special_symbols_declaration class_declaration
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 25
+
+state 17
+
+    (8) primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_equivalent_to_nested .
+    (12) primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_equivalent_to_nested . valid_disjoint_classes valid_individuals
+    (13) primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_equivalent_to_nested . valid_disjoint_classes
+    (40) valid_disjoint_classes -> . reserved_classes_declaration special_symbols_declaration valid_disjoint_list
+    (62) reserved_classes_declaration -> . RESERVED_CLASSES
+
+  ! shift/reduce conflict for RESERVED_CLASSES resolved as shift
+    $end            reduce using rule 8 (primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_equivalent_to_nested .)
+    RESERVED_CLASSES shift and go to state 6
+
+  ! RESERVED_CLASSES [ reduce using rule 8 (primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_equivalent_to_nested .) ]
+
+    valid_disjoint_classes         shift and go to state 26
+    reserved_classes_declaration   shift and go to state 24
+
+state 18
+
+    (10) primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_disjoint_classes .
+    (11) primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_disjoint_classes . valid_individuals
+    (55) valid_individuals -> . reserved_classes_declaration special_symbols_declaration valid_individuals_list
+    (62) reserved_classes_declaration -> . RESERVED_CLASSES
+
+  ! shift/reduce conflict for RESERVED_CLASSES resolved as shift
+    $end            reduce using rule 10 (primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_disjoint_classes .)
+    RESERVED_CLASSES shift and go to state 6
+
+  ! RESERVED_CLASSES [ reduce using rule 10 (primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_disjoint_classes .) ]
+
+    valid_individuals              shift and go to state 27
+    reserved_classes_declaration   shift and go to state 28
+
+state 19
+
+    (21) valid_equivalent_to_nested -> reserved_classes_declaration . special_symbols_declaration equivalent_to_nested
+    (22) valid_equivalent_to_nested -> reserved_classes_declaration . special_symbols_declaration equivalent_to_c_classes
+    (40) valid_disjoint_classes -> reserved_classes_declaration . special_symbols_declaration valid_disjoint_list
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 29
+
+state 20
+
+    (21) valid_equivalent_to_nested -> reserved_classes_declaration special_symbols_declaration . equivalent_to_nested
+    (22) valid_equivalent_to_nested -> reserved_classes_declaration special_symbols_declaration . equivalent_to_c_classes
+    (43) valid_subclass_of -> reserved_classes_declaration special_symbols_declaration . valid_subclass_of_list
+    (44) valid_subclass_of -> reserved_classes_declaration special_symbols_declaration . class_declaration
+    (17) valid_equivalent_to_enum -> reserved_classes_declaration special_symbols_declaration . equivalent_to_enum_conjunt
+    (25) equivalent_to_nested -> . class_declaration equivalent_to_nested_separated
+    (23) equivalent_to_c_classes -> . class_declaration
+    (24) equivalent_to_c_classes -> . class_declaration reserved_word_declaration equivalent_to_c_classes
+    (45) valid_subclass_of_list -> . class_declaration special_symbols_declaration valid_subclass_of_list
+    (46) valid_subclass_of_list -> . properties_declaration reserved_word_declaration class_declaration special_symbols_declaration valid_subclass_of_list
+    (47) valid_subclass_of_list -> . properties_declaration reserved_word_declaration class_declaration
+    (48) valid_subclass_of_list -> . properties_declaration reserved_word_declaration data_types_declaration special_symbols_declaration valid_subclass_of_list
+    (49) valid_subclass_of_list -> . properties_declaration reserved_word_declaration data_types_declaration
+    (50) valid_subclass_of_list -> . properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration valid_subclass_of_list
+    (51) valid_subclass_of_list -> . properties_declaration size_of_declaration cardinalities_declaration class_declaration
+    (52) valid_subclass_of_list -> . properties_declaration size_of_declaration special_symbols_declaration subclass_of_classes special_symbols_declaration
+    (59) class_declaration -> . CLASS
+    (18) equivalent_to_enum_conjunt -> . braces_declaration recursive_equivalent_to_enum_conjunt
+    (60) properties_declaration -> . PROPERTIES
+    (64) braces_declaration -> . BRACES
+
+    CLASS           shift and go to state 22
+    PROPERTIES      shift and go to state 37
+    BRACES          shift and go to state 38
+
+    equivalent_to_nested           shift and go to state 30
+    equivalent_to_c_classes        shift and go to state 31
+    valid_subclass_of_list         shift and go to state 32
+    class_declaration              shift and go to state 33
+    equivalent_to_enum_conjunt     shift and go to state 34
+    properties_declaration         shift and go to state 35
+    braces_declaration             shift and go to state 36
+
+state 21
+
+    (58) valid_class_declaration -> reserved_classes_declaration special_symbols_declaration class_declaration .
+
+    RESERVED_CLASSES reduce using rule 58 (valid_class_declaration -> reserved_classes_declaration special_symbols_declaration class_declaration .)
+    $end            reduce using rule 58 (valid_class_declaration -> reserved_classes_declaration special_symbols_declaration class_declaration .)
+
+
+state 22
+
+    (59) class_declaration -> CLASS .
+
+    RESERVED_CLASSES reduce using rule 59 (class_declaration -> CLASS .)
+    $end            reduce using rule 59 (class_declaration -> CLASS .)
+    RESERVED_WORD   reduce using rule 59 (class_declaration -> CLASS .)
+    SPECIAL_SYMBOLS reduce using rule 59 (class_declaration -> CLASS .)
+    BRACES          reduce using rule 59 (class_declaration -> CLASS .)
+
+
+state 23
+
+    (5) primitive_class_declaration -> valid_class_declaration valid_equivalent_to_nested valid_subclass_of valid_disjoint_classes . valid_individuals
+    (6) primitive_class_declaration -> valid_class_declaration valid_equivalent_to_nested valid_subclass_of valid_disjoint_classes .
+    (55) valid_individuals -> . reserved_classes_declaration special_symbols_declaration valid_individuals_list
+    (62) reserved_classes_declaration -> . RESERVED_CLASSES
+
+  ! shift/reduce conflict for RESERVED_CLASSES resolved as shift
+    $end            reduce using rule 6 (primitive_class_declaration -> valid_class_declaration valid_equivalent_to_nested valid_subclass_of valid_disjoint_classes .)
+    RESERVED_CLASSES shift and go to state 6
+
+  ! RESERVED_CLASSES [ reduce using rule 6 (primitive_class_declaration -> valid_class_declaration valid_equivalent_to_nested valid_subclass_of valid_disjoint_classes .) ]
+
+    valid_individuals              shift and go to state 39
+    reserved_classes_declaration   shift and go to state 28
+
+state 24
+
+    (40) valid_disjoint_classes -> reserved_classes_declaration . special_symbols_declaration valid_disjoint_list
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 40
+
+state 25
+
+    (43) valid_subclass_of -> reserved_classes_declaration special_symbols_declaration . valid_subclass_of_list
+    (44) valid_subclass_of -> reserved_classes_declaration special_symbols_declaration . class_declaration
+    (45) valid_subclass_of_list -> . class_declaration special_symbols_declaration valid_subclass_of_list
+    (46) valid_subclass_of_list -> . properties_declaration reserved_word_declaration class_declaration special_symbols_declaration valid_subclass_of_list
+    (47) valid_subclass_of_list -> . properties_declaration reserved_word_declaration class_declaration
+    (48) valid_subclass_of_list -> . properties_declaration reserved_word_declaration data_types_declaration special_symbols_declaration valid_subclass_of_list
+    (49) valid_subclass_of_list -> . properties_declaration reserved_word_declaration data_types_declaration
+    (50) valid_subclass_of_list -> . properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration valid_subclass_of_list
+    (51) valid_subclass_of_list -> . properties_declaration size_of_declaration cardinalities_declaration class_declaration
+    (52) valid_subclass_of_list -> . properties_declaration size_of_declaration special_symbols_declaration subclass_of_classes special_symbols_declaration
+    (59) class_declaration -> . CLASS
+    (60) properties_declaration -> . PROPERTIES
+
+    CLASS           shift and go to state 22
+    PROPERTIES      shift and go to state 37
+
+    valid_subclass_of_list         shift and go to state 32
+    class_declaration              shift and go to state 41
+    properties_declaration         shift and go to state 35
+
+state 26
+
+    (12) primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_equivalent_to_nested valid_disjoint_classes . valid_individuals
+    (13) primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_equivalent_to_nested valid_disjoint_classes .
+    (55) valid_individuals -> . reserved_classes_declaration special_symbols_declaration valid_individuals_list
+    (62) reserved_classes_declaration -> . RESERVED_CLASSES
+
+  ! shift/reduce conflict for RESERVED_CLASSES resolved as shift
+    $end            reduce using rule 13 (primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_equivalent_to_nested valid_disjoint_classes .)
+    RESERVED_CLASSES shift and go to state 6
+
+  ! RESERVED_CLASSES [ reduce using rule 13 (primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_equivalent_to_nested valid_disjoint_classes .) ]
+
+    valid_individuals              shift and go to state 42
+    reserved_classes_declaration   shift and go to state 28
+
+state 27
+
+    (11) primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_disjoint_classes valid_individuals .
+
+    RESERVED_CLASSES reduce using rule 11 (primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_disjoint_classes valid_individuals .)
+    $end            reduce using rule 11 (primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_disjoint_classes valid_individuals .)
+
+
+state 28
+
+    (55) valid_individuals -> reserved_classes_declaration . special_symbols_declaration valid_individuals_list
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 43
+
+state 29
+
+    (21) valid_equivalent_to_nested -> reserved_classes_declaration special_symbols_declaration . equivalent_to_nested
+    (22) valid_equivalent_to_nested -> reserved_classes_declaration special_symbols_declaration . equivalent_to_c_classes
+    (40) valid_disjoint_classes -> reserved_classes_declaration special_symbols_declaration . valid_disjoint_list
+    (25) equivalent_to_nested -> . class_declaration equivalent_to_nested_separated
+    (23) equivalent_to_c_classes -> . class_declaration
+    (24) equivalent_to_c_classes -> . class_declaration reserved_word_declaration equivalent_to_c_classes
+    (41) valid_disjoint_list -> . class_declaration
+    (42) valid_disjoint_list -> . class_declaration special_symbols_declaration valid_disjoint_list
+    (59) class_declaration -> . CLASS
+
+    CLASS           shift and go to state 22
+
+    equivalent_to_nested           shift and go to state 30
+    equivalent_to_c_classes        shift and go to state 31
+    valid_disjoint_list            shift and go to state 44
+    class_declaration              shift and go to state 45
+
+state 30
+
+    (21) valid_equivalent_to_nested -> reserved_classes_declaration special_symbols_declaration equivalent_to_nested .
+
+    RESERVED_CLASSES reduce using rule 21 (valid_equivalent_to_nested -> reserved_classes_declaration special_symbols_declaration equivalent_to_nested .)
+    $end            reduce using rule 21 (valid_equivalent_to_nested -> reserved_classes_declaration special_symbols_declaration equivalent_to_nested .)
+
+
+state 31
+
+    (22) valid_equivalent_to_nested -> reserved_classes_declaration special_symbols_declaration equivalent_to_c_classes .
+
+    RESERVED_CLASSES reduce using rule 22 (valid_equivalent_to_nested -> reserved_classes_declaration special_symbols_declaration equivalent_to_c_classes .)
+    $end            reduce using rule 22 (valid_equivalent_to_nested -> reserved_classes_declaration special_symbols_declaration equivalent_to_c_classes .)
+
+
+state 32
+
+    (43) valid_subclass_of -> reserved_classes_declaration special_symbols_declaration valid_subclass_of_list .
+
+    RESERVED_CLASSES reduce using rule 43 (valid_subclass_of -> reserved_classes_declaration special_symbols_declaration valid_subclass_of_list .)
+    $end            reduce using rule 43 (valid_subclass_of -> reserved_classes_declaration special_symbols_declaration valid_subclass_of_list .)
+
+
+state 33
+
+    (44) valid_subclass_of -> reserved_classes_declaration special_symbols_declaration class_declaration .
+    (25) equivalent_to_nested -> class_declaration . equivalent_to_nested_separated
+    (23) equivalent_to_c_classes -> class_declaration .
+    (24) equivalent_to_c_classes -> class_declaration . reserved_word_declaration equivalent_to_c_classes
+    (45) valid_subclass_of_list -> class_declaration . special_symbols_declaration valid_subclass_of_list
+    (26) equivalent_to_nested_separated -> . reserved_word_declaration equivalent_to_nested_conjunt
+    (63) reserved_word_declaration -> . RESERVED_WORD
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+  ! reduce/reduce conflict for RESERVED_CLASSES resolved using rule 23 (equivalent_to_c_classes -> class_declaration .)
+  ! reduce/reduce conflict for $end resolved using rule 23 (equivalent_to_c_classes -> class_declaration .)
+    RESERVED_CLASSES reduce using rule 23 (equivalent_to_c_classes -> class_declaration .)
+    $end            reduce using rule 23 (equivalent_to_c_classes -> class_declaration .)
+    RESERVED_WORD   shift and go to state 49
+    SPECIAL_SYMBOLS shift and go to state 14
+
+  ! RESERVED_CLASSES [ reduce using rule 44 (valid_subclass_of -> reserved_classes_declaration special_symbols_declaration class_declaration .) ]
+  ! $end            [ reduce using rule 44 (valid_subclass_of -> reserved_classes_declaration special_symbols_declaration class_declaration .) ]
+
+    special_symbols_declaration    shift and go to state 46
+    equivalent_to_nested_separated shift and go to state 47
+    reserved_word_declaration      shift and go to state 48
+
+state 34
+
+    (17) valid_equivalent_to_enum -> reserved_classes_declaration special_symbols_declaration equivalent_to_enum_conjunt .
+
+    RESERVED_CLASSES reduce using rule 17 (valid_equivalent_to_enum -> reserved_classes_declaration special_symbols_declaration equivalent_to_enum_conjunt .)
+    $end            reduce using rule 17 (valid_equivalent_to_enum -> reserved_classes_declaration special_symbols_declaration equivalent_to_enum_conjunt .)
+
+
+state 35
+
+    (46) valid_subclass_of_list -> properties_declaration . reserved_word_declaration class_declaration special_symbols_declaration valid_subclass_of_list
+    (47) valid_subclass_of_list -> properties_declaration . reserved_word_declaration class_declaration
+    (48) valid_subclass_of_list -> properties_declaration . reserved_word_declaration data_types_declaration special_symbols_declaration valid_subclass_of_list
+    (49) valid_subclass_of_list -> properties_declaration . reserved_word_declaration data_types_declaration
+    (50) valid_subclass_of_list -> properties_declaration . size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration valid_subclass_of_list
+    (51) valid_subclass_of_list -> properties_declaration . size_of_declaration cardinalities_declaration class_declaration
+    (52) valid_subclass_of_list -> properties_declaration . size_of_declaration special_symbols_declaration subclass_of_classes special_symbols_declaration
+    (63) reserved_word_declaration -> . RESERVED_WORD
+    (67) size_of_declaration -> . SIZE_OF
+
+    RESERVED_WORD   shift and go to state 49
+    SIZE_OF         shift and go to state 52
+
+    reserved_word_declaration      shift and go to state 50
+    size_of_declaration            shift and go to state 51
+
+state 36
+
+    (18) equivalent_to_enum_conjunt -> braces_declaration . recursive_equivalent_to_enum_conjunt
+    (19) recursive_equivalent_to_enum_conjunt -> . class_declaration special_symbols_declaration recursive_equivalent_to_enum_conjunt
+    (20) recursive_equivalent_to_enum_conjunt -> . class_declaration braces_declaration
+    (59) class_declaration -> . CLASS
+
+    CLASS           shift and go to state 22
+
+    recursive_equivalent_to_enum_conjunt shift and go to state 53
+    class_declaration              shift and go to state 54
+
+state 37
+
+    (60) properties_declaration -> PROPERTIES .
+
+    RESERVED_WORD   reduce using rule 60 (properties_declaration -> PROPERTIES .)
+    SIZE_OF         reduce using rule 60 (properties_declaration -> PROPERTIES .)
+
+
+state 38
+
+    (64) braces_declaration -> BRACES .
+
+    CLASS           reduce using rule 64 (braces_declaration -> BRACES .)
+    RESERVED_CLASSES reduce using rule 64 (braces_declaration -> BRACES .)
+    $end            reduce using rule 64 (braces_declaration -> BRACES .)
+
+
+state 39
+
+    (5) primitive_class_declaration -> valid_class_declaration valid_equivalent_to_nested valid_subclass_of valid_disjoint_classes valid_individuals .
+
+    RESERVED_CLASSES reduce using rule 5 (primitive_class_declaration -> valid_class_declaration valid_equivalent_to_nested valid_subclass_of valid_disjoint_classes valid_individuals .)
+    $end            reduce using rule 5 (primitive_class_declaration -> valid_class_declaration valid_equivalent_to_nested valid_subclass_of valid_disjoint_classes valid_individuals .)
+
+
+state 40
+
+    (40) valid_disjoint_classes -> reserved_classes_declaration special_symbols_declaration . valid_disjoint_list
+    (41) valid_disjoint_list -> . class_declaration
+    (42) valid_disjoint_list -> . class_declaration special_symbols_declaration valid_disjoint_list
+    (59) class_declaration -> . CLASS
+
+    CLASS           shift and go to state 22
+
+    valid_disjoint_list            shift and go to state 44
+    class_declaration              shift and go to state 55
+
+state 41
+
+    (44) valid_subclass_of -> reserved_classes_declaration special_symbols_declaration class_declaration .
+    (45) valid_subclass_of_list -> class_declaration . special_symbols_declaration valid_subclass_of_list
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    RESERVED_CLASSES reduce using rule 44 (valid_subclass_of -> reserved_classes_declaration special_symbols_declaration class_declaration .)
+    $end            reduce using rule 44 (valid_subclass_of -> reserved_classes_declaration special_symbols_declaration class_declaration .)
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 46
+
+state 42
+
+    (12) primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_equivalent_to_nested valid_disjoint_classes valid_individuals .
+
+    RESERVED_CLASSES reduce using rule 12 (primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_equivalent_to_nested valid_disjoint_classes valid_individuals .)
+    $end            reduce using rule 12 (primitive_class_declaration -> valid_class_declaration valid_subclass_of valid_equivalent_to_nested valid_disjoint_classes valid_individuals .)
+
+
+state 43
+
+    (55) valid_individuals -> reserved_classes_declaration special_symbols_declaration . valid_individuals_list
+    (56) valid_individuals_list -> . individuals_declaration
+    (57) valid_individuals_list -> . individuals_declaration special_symbols_declaration valid_individuals_list
+    (61) individuals_declaration -> . INDIVIDUALS
+
+    INDIVIDUALS     shift and go to state 58
+
+    valid_individuals_list         shift and go to state 56
+    individuals_declaration        shift and go to state 57
+
+state 44
+
+    (40) valid_disjoint_classes -> reserved_classes_declaration special_symbols_declaration valid_disjoint_list .
+
+    RESERVED_CLASSES reduce using rule 40 (valid_disjoint_classes -> reserved_classes_declaration special_symbols_declaration valid_disjoint_list .)
+    $end            reduce using rule 40 (valid_disjoint_classes -> reserved_classes_declaration special_symbols_declaration valid_disjoint_list .)
+
+
+state 45
+
+    (25) equivalent_to_nested -> class_declaration . equivalent_to_nested_separated
+    (23) equivalent_to_c_classes -> class_declaration .
+    (24) equivalent_to_c_classes -> class_declaration . reserved_word_declaration equivalent_to_c_classes
+    (41) valid_disjoint_list -> class_declaration .
+    (42) valid_disjoint_list -> class_declaration . special_symbols_declaration valid_disjoint_list
+    (26) equivalent_to_nested_separated -> . reserved_word_declaration equivalent_to_nested_conjunt
+    (63) reserved_word_declaration -> . RESERVED_WORD
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+  ! reduce/reduce conflict for RESERVED_CLASSES resolved using rule 23 (equivalent_to_c_classes -> class_declaration .)
+  ! reduce/reduce conflict for $end resolved using rule 23 (equivalent_to_c_classes -> class_declaration .)
+    RESERVED_CLASSES reduce using rule 23 (equivalent_to_c_classes -> class_declaration .)
+    $end            reduce using rule 23 (equivalent_to_c_classes -> class_declaration .)
+    RESERVED_WORD   shift and go to state 49
+    SPECIAL_SYMBOLS shift and go to state 14
+
+  ! RESERVED_CLASSES [ reduce using rule 41 (valid_disjoint_list -> class_declaration .) ]
+  ! $end            [ reduce using rule 41 (valid_disjoint_list -> class_declaration .) ]
+
+    equivalent_to_nested_separated shift and go to state 47
+    reserved_word_declaration      shift and go to state 48
+    special_symbols_declaration    shift and go to state 59
+
+state 46
+
+    (45) valid_subclass_of_list -> class_declaration special_symbols_declaration . valid_subclass_of_list
+    (45) valid_subclass_of_list -> . class_declaration special_symbols_declaration valid_subclass_of_list
+    (46) valid_subclass_of_list -> . properties_declaration reserved_word_declaration class_declaration special_symbols_declaration valid_subclass_of_list
+    (47) valid_subclass_of_list -> . properties_declaration reserved_word_declaration class_declaration
+    (48) valid_subclass_of_list -> . properties_declaration reserved_word_declaration data_types_declaration special_symbols_declaration valid_subclass_of_list
+    (49) valid_subclass_of_list -> . properties_declaration reserved_word_declaration data_types_declaration
+    (50) valid_subclass_of_list -> . properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration valid_subclass_of_list
+    (51) valid_subclass_of_list -> . properties_declaration size_of_declaration cardinalities_declaration class_declaration
+    (52) valid_subclass_of_list -> . properties_declaration size_of_declaration special_symbols_declaration subclass_of_classes special_symbols_declaration
+    (59) class_declaration -> . CLASS
+    (60) properties_declaration -> . PROPERTIES
+
+    CLASS           shift and go to state 22
+    PROPERTIES      shift and go to state 37
+
+    class_declaration              shift and go to state 60
+    valid_subclass_of_list         shift and go to state 61
+    properties_declaration         shift and go to state 35
+
+state 47
+
+    (25) equivalent_to_nested -> class_declaration equivalent_to_nested_separated .
+
+    RESERVED_CLASSES reduce using rule 25 (equivalent_to_nested -> class_declaration equivalent_to_nested_separated .)
+    $end            reduce using rule 25 (equivalent_to_nested -> class_declaration equivalent_to_nested_separated .)
+
+
+state 48
+
+    (24) equivalent_to_c_classes -> class_declaration reserved_word_declaration . equivalent_to_c_classes
+    (26) equivalent_to_nested_separated -> reserved_word_declaration . equivalent_to_nested_conjunt
+    (23) equivalent_to_c_classes -> . class_declaration
+    (24) equivalent_to_c_classes -> . class_declaration reserved_word_declaration equivalent_to_c_classes
+    (27) equivalent_to_nested_conjunt -> . special_symbols_declaration recursive_equivalent_to_nested_conjunt
+    (28) equivalent_to_nested_conjunt -> . special_symbols_declaration equivalent_to_conjunt_cardi
+    (59) class_declaration -> . CLASS
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    CLASS           shift and go to state 22
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    class_declaration              shift and go to state 62
+    equivalent_to_c_classes        shift and go to state 63
+    equivalent_to_nested_conjunt   shift and go to state 64
+    special_symbols_declaration    shift and go to state 65
+
+state 49
+
+    (63) reserved_word_declaration -> RESERVED_WORD .
+
+    CLASS           reduce using rule 63 (reserved_word_declaration -> RESERVED_WORD .)
+    SPECIAL_SYMBOLS reduce using rule 63 (reserved_word_declaration -> RESERVED_WORD .)
+    DATA_TYPES      reduce using rule 63 (reserved_word_declaration -> RESERVED_WORD .)
+
+
+state 50
+
+    (46) valid_subclass_of_list -> properties_declaration reserved_word_declaration . class_declaration special_symbols_declaration valid_subclass_of_list
+    (47) valid_subclass_of_list -> properties_declaration reserved_word_declaration . class_declaration
+    (48) valid_subclass_of_list -> properties_declaration reserved_word_declaration . data_types_declaration special_symbols_declaration valid_subclass_of_list
+    (49) valid_subclass_of_list -> properties_declaration reserved_word_declaration . data_types_declaration
+    (59) class_declaration -> . CLASS
+    (66) data_types_declaration -> . DATA_TYPES
+
+    CLASS           shift and go to state 22
+    DATA_TYPES      shift and go to state 68
+
+    class_declaration              shift and go to state 66
+    data_types_declaration         shift and go to state 67
+
+state 51
+
+    (50) valid_subclass_of_list -> properties_declaration size_of_declaration . cardinalities_declaration class_declaration special_symbols_declaration valid_subclass_of_list
+    (51) valid_subclass_of_list -> properties_declaration size_of_declaration . cardinalities_declaration class_declaration
+    (52) valid_subclass_of_list -> properties_declaration size_of_declaration . special_symbols_declaration subclass_of_classes special_symbols_declaration
+    (68) cardinalities_declaration -> . CARDINALITIES
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    CARDINALITIES   shift and go to state 71
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    cardinalities_declaration      shift and go to state 69
+    special_symbols_declaration    shift and go to state 70
+
+state 52
+
+    (67) size_of_declaration -> SIZE_OF .
+
+    CARDINALITIES   reduce using rule 67 (size_of_declaration -> SIZE_OF .)
+    SPECIAL_SYMBOLS reduce using rule 67 (size_of_declaration -> SIZE_OF .)
+
+
+state 53
+
+    (18) equivalent_to_enum_conjunt -> braces_declaration recursive_equivalent_to_enum_conjunt .
+
+    RESERVED_CLASSES reduce using rule 18 (equivalent_to_enum_conjunt -> braces_declaration recursive_equivalent_to_enum_conjunt .)
+    $end            reduce using rule 18 (equivalent_to_enum_conjunt -> braces_declaration recursive_equivalent_to_enum_conjunt .)
+
+
+state 54
+
+    (19) recursive_equivalent_to_enum_conjunt -> class_declaration . special_symbols_declaration recursive_equivalent_to_enum_conjunt
+    (20) recursive_equivalent_to_enum_conjunt -> class_declaration . braces_declaration
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+    (64) braces_declaration -> . BRACES
+
+    SPECIAL_SYMBOLS shift and go to state 14
+    BRACES          shift and go to state 38
+
+    special_symbols_declaration    shift and go to state 72
+    braces_declaration             shift and go to state 73
+
+state 55
+
+    (41) valid_disjoint_list -> class_declaration .
+    (42) valid_disjoint_list -> class_declaration . special_symbols_declaration valid_disjoint_list
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    RESERVED_CLASSES reduce using rule 41 (valid_disjoint_list -> class_declaration .)
+    $end            reduce using rule 41 (valid_disjoint_list -> class_declaration .)
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 59
+
+state 56
+
+    (55) valid_individuals -> reserved_classes_declaration special_symbols_declaration valid_individuals_list .
+
+    RESERVED_CLASSES reduce using rule 55 (valid_individuals -> reserved_classes_declaration special_symbols_declaration valid_individuals_list .)
+    $end            reduce using rule 55 (valid_individuals -> reserved_classes_declaration special_symbols_declaration valid_individuals_list .)
+
+
+state 57
+
+    (56) valid_individuals_list -> individuals_declaration .
+    (57) valid_individuals_list -> individuals_declaration . special_symbols_declaration valid_individuals_list
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    RESERVED_CLASSES reduce using rule 56 (valid_individuals_list -> individuals_declaration .)
+    $end            reduce using rule 56 (valid_individuals_list -> individuals_declaration .)
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 74
+
+state 58
+
+    (61) individuals_declaration -> INDIVIDUALS .
+
+    SPECIAL_SYMBOLS reduce using rule 61 (individuals_declaration -> INDIVIDUALS .)
+    RESERVED_CLASSES reduce using rule 61 (individuals_declaration -> INDIVIDUALS .)
+    $end            reduce using rule 61 (individuals_declaration -> INDIVIDUALS .)
+
+
+state 59
+
+    (42) valid_disjoint_list -> class_declaration special_symbols_declaration . valid_disjoint_list
+    (41) valid_disjoint_list -> . class_declaration
+    (42) valid_disjoint_list -> . class_declaration special_symbols_declaration valid_disjoint_list
+    (59) class_declaration -> . CLASS
+
+    CLASS           shift and go to state 22
+
+    class_declaration              shift and go to state 55
+    valid_disjoint_list            shift and go to state 75
+
+state 60
+
+    (45) valid_subclass_of_list -> class_declaration . special_symbols_declaration valid_subclass_of_list
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 46
+
+state 61
+
+    (45) valid_subclass_of_list -> class_declaration special_symbols_declaration valid_subclass_of_list .
+
+    RESERVED_CLASSES reduce using rule 45 (valid_subclass_of_list -> class_declaration special_symbols_declaration valid_subclass_of_list .)
+    $end            reduce using rule 45 (valid_subclass_of_list -> class_declaration special_symbols_declaration valid_subclass_of_list .)
+
+
+state 62
+
+    (23) equivalent_to_c_classes -> class_declaration .
+    (24) equivalent_to_c_classes -> class_declaration . reserved_word_declaration equivalent_to_c_classes
+    (63) reserved_word_declaration -> . RESERVED_WORD
+
+    RESERVED_CLASSES reduce using rule 23 (equivalent_to_c_classes -> class_declaration .)
+    $end            reduce using rule 23 (equivalent_to_c_classes -> class_declaration .)
+    RESERVED_WORD   shift and go to state 49
+
+    reserved_word_declaration      shift and go to state 76
+
+state 63
+
+    (24) equivalent_to_c_classes -> class_declaration reserved_word_declaration equivalent_to_c_classes .
+
+    RESERVED_CLASSES reduce using rule 24 (equivalent_to_c_classes -> class_declaration reserved_word_declaration equivalent_to_c_classes .)
+    $end            reduce using rule 24 (equivalent_to_c_classes -> class_declaration reserved_word_declaration equivalent_to_c_classes .)
+
+
+state 64
+
+    (26) equivalent_to_nested_separated -> reserved_word_declaration equivalent_to_nested_conjunt .
+
+    RESERVED_CLASSES reduce using rule 26 (equivalent_to_nested_separated -> reserved_word_declaration equivalent_to_nested_conjunt .)
+    $end            reduce using rule 26 (equivalent_to_nested_separated -> reserved_word_declaration equivalent_to_nested_conjunt .)
+    SPECIAL_SYMBOLS reduce using rule 26 (equivalent_to_nested_separated -> reserved_word_declaration equivalent_to_nested_conjunt .)
+
+
+state 65
+
+    (27) equivalent_to_nested_conjunt -> special_symbols_declaration . recursive_equivalent_to_nested_conjunt
+    (28) equivalent_to_nested_conjunt -> special_symbols_declaration . equivalent_to_conjunt_cardi
+    (29) recursive_equivalent_to_nested_conjunt -> . properties_declaration reserved_word_declaration recursive_equivalent_to_nested_conjunt_end
+    (30) recursive_equivalent_to_nested_conjunt -> . properties_declaration reserved_word_declaration equivalent_to_conjunt_cardi
+    (31) recursive_equivalent_to_nested_conjunt -> . properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration equivalent_to_nested_separated
+    (32) recursive_equivalent_to_nested_conjunt -> . properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration
+    (36) equivalent_to_conjunt_cardi -> . data_types_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration
+    (37) equivalent_to_conjunt_cardi -> . data_types_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration
+    (38) equivalent_to_conjunt_cardi -> . data_types_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt
+    (39) equivalent_to_conjunt_cardi -> . data_types_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt
+    (60) properties_declaration -> . PROPERTIES
+    (66) data_types_declaration -> . DATA_TYPES
+
+    PROPERTIES      shift and go to state 37
+    DATA_TYPES      shift and go to state 68
+
+    recursive_equivalent_to_nested_conjunt shift and go to state 77
+    equivalent_to_conjunt_cardi    shift and go to state 78
+    properties_declaration         shift and go to state 79
+    data_types_declaration         shift and go to state 80
+
+state 66
+
+    (46) valid_subclass_of_list -> properties_declaration reserved_word_declaration class_declaration . special_symbols_declaration valid_subclass_of_list
+    (47) valid_subclass_of_list -> properties_declaration reserved_word_declaration class_declaration .
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    RESERVED_CLASSES reduce using rule 47 (valid_subclass_of_list -> properties_declaration reserved_word_declaration class_declaration .)
+    $end            reduce using rule 47 (valid_subclass_of_list -> properties_declaration reserved_word_declaration class_declaration .)
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 81
+
+state 67
+
+    (48) valid_subclass_of_list -> properties_declaration reserved_word_declaration data_types_declaration . special_symbols_declaration valid_subclass_of_list
+    (49) valid_subclass_of_list -> properties_declaration reserved_word_declaration data_types_declaration .
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    RESERVED_CLASSES reduce using rule 49 (valid_subclass_of_list -> properties_declaration reserved_word_declaration data_types_declaration .)
+    $end            reduce using rule 49 (valid_subclass_of_list -> properties_declaration reserved_word_declaration data_types_declaration .)
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 82
+
+state 68
+
+    (66) data_types_declaration -> DATA_TYPES .
+
+    SPECIAL_SYMBOLS reduce using rule 66 (data_types_declaration -> DATA_TYPES .)
+    RESERVED_CLASSES reduce using rule 66 (data_types_declaration -> DATA_TYPES .)
+    $end            reduce using rule 66 (data_types_declaration -> DATA_TYPES .)
+
+
+state 69
+
+    (50) valid_subclass_of_list -> properties_declaration size_of_declaration cardinalities_declaration . class_declaration special_symbols_declaration valid_subclass_of_list
+    (51) valid_subclass_of_list -> properties_declaration size_of_declaration cardinalities_declaration . class_declaration
+    (59) class_declaration -> . CLASS
+
+    CLASS           shift and go to state 22
+
+    class_declaration              shift and go to state 83
+
+state 70
+
+    (52) valid_subclass_of_list -> properties_declaration size_of_declaration special_symbols_declaration . subclass_of_classes special_symbols_declaration
+    (53) subclass_of_classes -> . class_declaration
+    (54) subclass_of_classes -> . class_declaration reserved_word_declaration subclass_of_classes
+    (59) class_declaration -> . CLASS
+
+    CLASS           shift and go to state 22
+
+    subclass_of_classes            shift and go to state 84
+    class_declaration              shift and go to state 85
+
+state 71
+
+    (68) cardinalities_declaration -> CARDINALITIES .
+
+    CLASS           reduce using rule 68 (cardinalities_declaration -> CARDINALITIES .)
+    SPECIAL_SYMBOLS reduce using rule 68 (cardinalities_declaration -> CARDINALITIES .)
+
+
+state 72
+
+    (19) recursive_equivalent_to_enum_conjunt -> class_declaration special_symbols_declaration . recursive_equivalent_to_enum_conjunt
+    (19) recursive_equivalent_to_enum_conjunt -> . class_declaration special_symbols_declaration recursive_equivalent_to_enum_conjunt
+    (20) recursive_equivalent_to_enum_conjunt -> . class_declaration braces_declaration
+    (59) class_declaration -> . CLASS
+
+    CLASS           shift and go to state 22
+
+    class_declaration              shift and go to state 54
+    recursive_equivalent_to_enum_conjunt shift and go to state 86
+
+state 73
+
+    (20) recursive_equivalent_to_enum_conjunt -> class_declaration braces_declaration .
+
+    RESERVED_CLASSES reduce using rule 20 (recursive_equivalent_to_enum_conjunt -> class_declaration braces_declaration .)
+    $end            reduce using rule 20 (recursive_equivalent_to_enum_conjunt -> class_declaration braces_declaration .)
+
+
+state 74
+
+    (57) valid_individuals_list -> individuals_declaration special_symbols_declaration . valid_individuals_list
+    (56) valid_individuals_list -> . individuals_declaration
+    (57) valid_individuals_list -> . individuals_declaration special_symbols_declaration valid_individuals_list
+    (61) individuals_declaration -> . INDIVIDUALS
+
+    INDIVIDUALS     shift and go to state 58
+
+    individuals_declaration        shift and go to state 57
+    valid_individuals_list         shift and go to state 87
+
+state 75
+
+    (42) valid_disjoint_list -> class_declaration special_symbols_declaration valid_disjoint_list .
+
+    RESERVED_CLASSES reduce using rule 42 (valid_disjoint_list -> class_declaration special_symbols_declaration valid_disjoint_list .)
+    $end            reduce using rule 42 (valid_disjoint_list -> class_declaration special_symbols_declaration valid_disjoint_list .)
+
+
+state 76
+
+    (24) equivalent_to_c_classes -> class_declaration reserved_word_declaration . equivalent_to_c_classes
+    (23) equivalent_to_c_classes -> . class_declaration
+    (24) equivalent_to_c_classes -> . class_declaration reserved_word_declaration equivalent_to_c_classes
+    (59) class_declaration -> . CLASS
+
+    CLASS           shift and go to state 22
+
+    class_declaration              shift and go to state 62
+    equivalent_to_c_classes        shift and go to state 63
+
+state 77
+
+    (27) equivalent_to_nested_conjunt -> special_symbols_declaration recursive_equivalent_to_nested_conjunt .
+
+    RESERVED_CLASSES reduce using rule 27 (equivalent_to_nested_conjunt -> special_symbols_declaration recursive_equivalent_to_nested_conjunt .)
+    $end            reduce using rule 27 (equivalent_to_nested_conjunt -> special_symbols_declaration recursive_equivalent_to_nested_conjunt .)
+    SPECIAL_SYMBOLS reduce using rule 27 (equivalent_to_nested_conjunt -> special_symbols_declaration recursive_equivalent_to_nested_conjunt .)
+
+
+state 78
+
+    (28) equivalent_to_nested_conjunt -> special_symbols_declaration equivalent_to_conjunt_cardi .
+
+    RESERVED_CLASSES reduce using rule 28 (equivalent_to_nested_conjunt -> special_symbols_declaration equivalent_to_conjunt_cardi .)
+    $end            reduce using rule 28 (equivalent_to_nested_conjunt -> special_symbols_declaration equivalent_to_conjunt_cardi .)
+    SPECIAL_SYMBOLS reduce using rule 28 (equivalent_to_nested_conjunt -> special_symbols_declaration equivalent_to_conjunt_cardi .)
+
+
+state 79
+
+    (29) recursive_equivalent_to_nested_conjunt -> properties_declaration . reserved_word_declaration recursive_equivalent_to_nested_conjunt_end
+    (30) recursive_equivalent_to_nested_conjunt -> properties_declaration . reserved_word_declaration equivalent_to_conjunt_cardi
+    (31) recursive_equivalent_to_nested_conjunt -> properties_declaration . size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration equivalent_to_nested_separated
+    (32) recursive_equivalent_to_nested_conjunt -> properties_declaration . size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration
+    (63) reserved_word_declaration -> . RESERVED_WORD
+    (67) size_of_declaration -> . SIZE_OF
+
+    RESERVED_WORD   shift and go to state 49
+    SIZE_OF         shift and go to state 52
+
+    reserved_word_declaration      shift and go to state 88
+    size_of_declaration            shift and go to state 89
+
+state 80
+
+    (36) equivalent_to_conjunt_cardi -> data_types_declaration . special_symbols_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration
+    (37) equivalent_to_conjunt_cardi -> data_types_declaration . special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration
+    (38) equivalent_to_conjunt_cardi -> data_types_declaration . special_symbols_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt
+    (39) equivalent_to_conjunt_cardi -> data_types_declaration . special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 90
+
+state 81
+
+    (46) valid_subclass_of_list -> properties_declaration reserved_word_declaration class_declaration special_symbols_declaration . valid_subclass_of_list
+    (45) valid_subclass_of_list -> . class_declaration special_symbols_declaration valid_subclass_of_list
+    (46) valid_subclass_of_list -> . properties_declaration reserved_word_declaration class_declaration special_symbols_declaration valid_subclass_of_list
+    (47) valid_subclass_of_list -> . properties_declaration reserved_word_declaration class_declaration
+    (48) valid_subclass_of_list -> . properties_declaration reserved_word_declaration data_types_declaration special_symbols_declaration valid_subclass_of_list
+    (49) valid_subclass_of_list -> . properties_declaration reserved_word_declaration data_types_declaration
+    (50) valid_subclass_of_list -> . properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration valid_subclass_of_list
+    (51) valid_subclass_of_list -> . properties_declaration size_of_declaration cardinalities_declaration class_declaration
+    (52) valid_subclass_of_list -> . properties_declaration size_of_declaration special_symbols_declaration subclass_of_classes special_symbols_declaration
+    (59) class_declaration -> . CLASS
+    (60) properties_declaration -> . PROPERTIES
+
+    CLASS           shift and go to state 22
+    PROPERTIES      shift and go to state 37
+
+    properties_declaration         shift and go to state 35
+    class_declaration              shift and go to state 60
+    valid_subclass_of_list         shift and go to state 91
+
+state 82
+
+    (48) valid_subclass_of_list -> properties_declaration reserved_word_declaration data_types_declaration special_symbols_declaration . valid_subclass_of_list
+    (45) valid_subclass_of_list -> . class_declaration special_symbols_declaration valid_subclass_of_list
+    (46) valid_subclass_of_list -> . properties_declaration reserved_word_declaration class_declaration special_symbols_declaration valid_subclass_of_list
+    (47) valid_subclass_of_list -> . properties_declaration reserved_word_declaration class_declaration
+    (48) valid_subclass_of_list -> . properties_declaration reserved_word_declaration data_types_declaration special_symbols_declaration valid_subclass_of_list
+    (49) valid_subclass_of_list -> . properties_declaration reserved_word_declaration data_types_declaration
+    (50) valid_subclass_of_list -> . properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration valid_subclass_of_list
+    (51) valid_subclass_of_list -> . properties_declaration size_of_declaration cardinalities_declaration class_declaration
+    (52) valid_subclass_of_list -> . properties_declaration size_of_declaration special_symbols_declaration subclass_of_classes special_symbols_declaration
+    (59) class_declaration -> . CLASS
+    (60) properties_declaration -> . PROPERTIES
+
+    CLASS           shift and go to state 22
+    PROPERTIES      shift and go to state 37
+
+    properties_declaration         shift and go to state 35
+    valid_subclass_of_list         shift and go to state 92
+    class_declaration              shift and go to state 60
+
+state 83
+
+    (50) valid_subclass_of_list -> properties_declaration size_of_declaration cardinalities_declaration class_declaration . special_symbols_declaration valid_subclass_of_list
+    (51) valid_subclass_of_list -> properties_declaration size_of_declaration cardinalities_declaration class_declaration .
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    RESERVED_CLASSES reduce using rule 51 (valid_subclass_of_list -> properties_declaration size_of_declaration cardinalities_declaration class_declaration .)
+    $end            reduce using rule 51 (valid_subclass_of_list -> properties_declaration size_of_declaration cardinalities_declaration class_declaration .)
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 93
+
+state 84
+
+    (52) valid_subclass_of_list -> properties_declaration size_of_declaration special_symbols_declaration subclass_of_classes . special_symbols_declaration
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 94
+
+state 85
+
+    (53) subclass_of_classes -> class_declaration .
+    (54) subclass_of_classes -> class_declaration . reserved_word_declaration subclass_of_classes
+    (63) reserved_word_declaration -> . RESERVED_WORD
+
+    SPECIAL_SYMBOLS reduce using rule 53 (subclass_of_classes -> class_declaration .)
+    RESERVED_WORD   shift and go to state 49
+
+    reserved_word_declaration      shift and go to state 95
+
+state 86
+
+    (19) recursive_equivalent_to_enum_conjunt -> class_declaration special_symbols_declaration recursive_equivalent_to_enum_conjunt .
+
+    RESERVED_CLASSES reduce using rule 19 (recursive_equivalent_to_enum_conjunt -> class_declaration special_symbols_declaration recursive_equivalent_to_enum_conjunt .)
+    $end            reduce using rule 19 (recursive_equivalent_to_enum_conjunt -> class_declaration special_symbols_declaration recursive_equivalent_to_enum_conjunt .)
+
+
+state 87
+
+    (57) valid_individuals_list -> individuals_declaration special_symbols_declaration valid_individuals_list .
+
+    RESERVED_CLASSES reduce using rule 57 (valid_individuals_list -> individuals_declaration special_symbols_declaration valid_individuals_list .)
+    $end            reduce using rule 57 (valid_individuals_list -> individuals_declaration special_symbols_declaration valid_individuals_list .)
+
+
+state 88
+
+    (29) recursive_equivalent_to_nested_conjunt -> properties_declaration reserved_word_declaration . recursive_equivalent_to_nested_conjunt_end
+    (30) recursive_equivalent_to_nested_conjunt -> properties_declaration reserved_word_declaration . equivalent_to_conjunt_cardi
+    (33) recursive_equivalent_to_nested_conjunt_end -> . class_declaration special_symbols_declaration
+    (34) recursive_equivalent_to_nested_conjunt_end -> . parenthesized_expression
+    (36) equivalent_to_conjunt_cardi -> . data_types_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration
+    (37) equivalent_to_conjunt_cardi -> . data_types_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration
+    (38) equivalent_to_conjunt_cardi -> . data_types_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt
+    (39) equivalent_to_conjunt_cardi -> . data_types_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt
+    (59) class_declaration -> . CLASS
+    (35) parenthesized_expression -> . special_symbols_declaration recursive_equivalent_to_nested_conjunt special_symbols_declaration
+    (66) data_types_declaration -> . DATA_TYPES
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    CLASS           shift and go to state 22
+    DATA_TYPES      shift and go to state 68
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    recursive_equivalent_to_nested_conjunt_end shift and go to state 96
+    equivalent_to_conjunt_cardi    shift and go to state 97
+    class_declaration              shift and go to state 98
+    special_symbols_declaration    shift and go to state 99
+    parenthesized_expression       shift and go to state 100
+    data_types_declaration         shift and go to state 80
+
+state 89
+
+    (31) recursive_equivalent_to_nested_conjunt -> properties_declaration size_of_declaration . cardinalities_declaration class_declaration special_symbols_declaration equivalent_to_nested_separated
+    (32) recursive_equivalent_to_nested_conjunt -> properties_declaration size_of_declaration . cardinalities_declaration class_declaration special_symbols_declaration
+    (68) cardinalities_declaration -> . CARDINALITIES
+
+    CARDINALITIES   shift and go to state 71
+
+    cardinalities_declaration      shift and go to state 101
+
+state 90
+
+    (36) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration . special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration
+    (37) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration . special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration
+    (38) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration . special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt
+    (39) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration . special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 102
+
+state 91
+
+    (46) valid_subclass_of_list -> properties_declaration reserved_word_declaration class_declaration special_symbols_declaration valid_subclass_of_list .
+
+    RESERVED_CLASSES reduce using rule 46 (valid_subclass_of_list -> properties_declaration reserved_word_declaration class_declaration special_symbols_declaration valid_subclass_of_list .)
+    $end            reduce using rule 46 (valid_subclass_of_list -> properties_declaration reserved_word_declaration class_declaration special_symbols_declaration valid_subclass_of_list .)
+
+
+state 92
+
+    (48) valid_subclass_of_list -> properties_declaration reserved_word_declaration data_types_declaration special_symbols_declaration valid_subclass_of_list .
+
+    RESERVED_CLASSES reduce using rule 48 (valid_subclass_of_list -> properties_declaration reserved_word_declaration data_types_declaration special_symbols_declaration valid_subclass_of_list .)
+    $end            reduce using rule 48 (valid_subclass_of_list -> properties_declaration reserved_word_declaration data_types_declaration special_symbols_declaration valid_subclass_of_list .)
+
+
+state 93
+
+    (50) valid_subclass_of_list -> properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration . valid_subclass_of_list
+    (45) valid_subclass_of_list -> . class_declaration special_symbols_declaration valid_subclass_of_list
+    (46) valid_subclass_of_list -> . properties_declaration reserved_word_declaration class_declaration special_symbols_declaration valid_subclass_of_list
+    (47) valid_subclass_of_list -> . properties_declaration reserved_word_declaration class_declaration
+    (48) valid_subclass_of_list -> . properties_declaration reserved_word_declaration data_types_declaration special_symbols_declaration valid_subclass_of_list
+    (49) valid_subclass_of_list -> . properties_declaration reserved_word_declaration data_types_declaration
+    (50) valid_subclass_of_list -> . properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration valid_subclass_of_list
+    (51) valid_subclass_of_list -> . properties_declaration size_of_declaration cardinalities_declaration class_declaration
+    (52) valid_subclass_of_list -> . properties_declaration size_of_declaration special_symbols_declaration subclass_of_classes special_symbols_declaration
+    (59) class_declaration -> . CLASS
+    (60) properties_declaration -> . PROPERTIES
+
+    CLASS           shift and go to state 22
+    PROPERTIES      shift and go to state 37
+
+    properties_declaration         shift and go to state 35
+    class_declaration              shift and go to state 60
+    valid_subclass_of_list         shift and go to state 103
+
+state 94
+
+    (52) valid_subclass_of_list -> properties_declaration size_of_declaration special_symbols_declaration subclass_of_classes special_symbols_declaration .
+
+    RESERVED_CLASSES reduce using rule 52 (valid_subclass_of_list -> properties_declaration size_of_declaration special_symbols_declaration subclass_of_classes special_symbols_declaration .)
+    $end            reduce using rule 52 (valid_subclass_of_list -> properties_declaration size_of_declaration special_symbols_declaration subclass_of_classes special_symbols_declaration .)
+
+
+state 95
+
+    (54) subclass_of_classes -> class_declaration reserved_word_declaration . subclass_of_classes
+    (53) subclass_of_classes -> . class_declaration
+    (54) subclass_of_classes -> . class_declaration reserved_word_declaration subclass_of_classes
+    (59) class_declaration -> . CLASS
+
+    CLASS           shift and go to state 22
+
+    class_declaration              shift and go to state 85
+    subclass_of_classes            shift and go to state 104
+
+state 96
+
+    (29) recursive_equivalent_to_nested_conjunt -> properties_declaration reserved_word_declaration recursive_equivalent_to_nested_conjunt_end .
+
+    RESERVED_CLASSES reduce using rule 29 (recursive_equivalent_to_nested_conjunt -> properties_declaration reserved_word_declaration recursive_equivalent_to_nested_conjunt_end .)
+    $end            reduce using rule 29 (recursive_equivalent_to_nested_conjunt -> properties_declaration reserved_word_declaration recursive_equivalent_to_nested_conjunt_end .)
+    SPECIAL_SYMBOLS reduce using rule 29 (recursive_equivalent_to_nested_conjunt -> properties_declaration reserved_word_declaration recursive_equivalent_to_nested_conjunt_end .)
+
+
+state 97
+
+    (30) recursive_equivalent_to_nested_conjunt -> properties_declaration reserved_word_declaration equivalent_to_conjunt_cardi .
+
+    RESERVED_CLASSES reduce using rule 30 (recursive_equivalent_to_nested_conjunt -> properties_declaration reserved_word_declaration equivalent_to_conjunt_cardi .)
+    $end            reduce using rule 30 (recursive_equivalent_to_nested_conjunt -> properties_declaration reserved_word_declaration equivalent_to_conjunt_cardi .)
+    SPECIAL_SYMBOLS reduce using rule 30 (recursive_equivalent_to_nested_conjunt -> properties_declaration reserved_word_declaration equivalent_to_conjunt_cardi .)
+
+
+state 98
+
+    (33) recursive_equivalent_to_nested_conjunt_end -> class_declaration . special_symbols_declaration
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 105
+
+state 99
+
+    (35) parenthesized_expression -> special_symbols_declaration . recursive_equivalent_to_nested_conjunt special_symbols_declaration
+    (29) recursive_equivalent_to_nested_conjunt -> . properties_declaration reserved_word_declaration recursive_equivalent_to_nested_conjunt_end
+    (30) recursive_equivalent_to_nested_conjunt -> . properties_declaration reserved_word_declaration equivalent_to_conjunt_cardi
+    (31) recursive_equivalent_to_nested_conjunt -> . properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration equivalent_to_nested_separated
+    (32) recursive_equivalent_to_nested_conjunt -> . properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration
+    (60) properties_declaration -> . PROPERTIES
+
+    PROPERTIES      shift and go to state 37
+
+    recursive_equivalent_to_nested_conjunt shift and go to state 106
+    properties_declaration         shift and go to state 79
+
+state 100
+
+    (34) recursive_equivalent_to_nested_conjunt_end -> parenthesized_expression .
+
+    RESERVED_CLASSES reduce using rule 34 (recursive_equivalent_to_nested_conjunt_end -> parenthesized_expression .)
+    $end            reduce using rule 34 (recursive_equivalent_to_nested_conjunt_end -> parenthesized_expression .)
+    SPECIAL_SYMBOLS reduce using rule 34 (recursive_equivalent_to_nested_conjunt_end -> parenthesized_expression .)
+
+
+state 101
+
+    (31) recursive_equivalent_to_nested_conjunt -> properties_declaration size_of_declaration cardinalities_declaration . class_declaration special_symbols_declaration equivalent_to_nested_separated
+    (32) recursive_equivalent_to_nested_conjunt -> properties_declaration size_of_declaration cardinalities_declaration . class_declaration special_symbols_declaration
+    (59) class_declaration -> . CLASS
+
+    CLASS           shift and go to state 22
+
+    class_declaration              shift and go to state 107
+
+state 102
+
+    (36) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration . special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration
+    (37) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration . cardinalities_declaration special_symbols_declaration special_symbols_declaration
+    (38) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration . special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt
+    (39) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration . cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+    (68) cardinalities_declaration -> . CARDINALITIES
+
+    SPECIAL_SYMBOLS shift and go to state 14
+    CARDINALITIES   shift and go to state 71
+
+    special_symbols_declaration    shift and go to state 108
+    cardinalities_declaration      shift and go to state 109
+
+state 103
+
+    (50) valid_subclass_of_list -> properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration valid_subclass_of_list .
+
+    RESERVED_CLASSES reduce using rule 50 (valid_subclass_of_list -> properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration valid_subclass_of_list .)
+    $end            reduce using rule 50 (valid_subclass_of_list -> properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration valid_subclass_of_list .)
+
+
+state 104
+
+    (54) subclass_of_classes -> class_declaration reserved_word_declaration subclass_of_classes .
+
+    SPECIAL_SYMBOLS reduce using rule 54 (subclass_of_classes -> class_declaration reserved_word_declaration subclass_of_classes .)
+
+
+state 105
+
+    (33) recursive_equivalent_to_nested_conjunt_end -> class_declaration special_symbols_declaration .
+
+    RESERVED_CLASSES reduce using rule 33 (recursive_equivalent_to_nested_conjunt_end -> class_declaration special_symbols_declaration .)
+    $end            reduce using rule 33 (recursive_equivalent_to_nested_conjunt_end -> class_declaration special_symbols_declaration .)
+    SPECIAL_SYMBOLS reduce using rule 33 (recursive_equivalent_to_nested_conjunt_end -> class_declaration special_symbols_declaration .)
+
+
+state 106
+
+    (35) parenthesized_expression -> special_symbols_declaration recursive_equivalent_to_nested_conjunt . special_symbols_declaration
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 110
+
+state 107
+
+    (31) recursive_equivalent_to_nested_conjunt -> properties_declaration size_of_declaration cardinalities_declaration class_declaration . special_symbols_declaration equivalent_to_nested_separated
+    (32) recursive_equivalent_to_nested_conjunt -> properties_declaration size_of_declaration cardinalities_declaration class_declaration . special_symbols_declaration
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 111
+
+state 108
+
+    (36) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration . cardinalities_declaration special_symbols_declaration special_symbols_declaration
+    (38) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration . cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt
+    (68) cardinalities_declaration -> . CARDINALITIES
+
+    CARDINALITIES   shift and go to state 71
+
+    cardinalities_declaration      shift and go to state 112
+
+state 109
+
+    (37) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration . special_symbols_declaration special_symbols_declaration
+    (39) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration . special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 113
+
+state 110
+
+    (35) parenthesized_expression -> special_symbols_declaration recursive_equivalent_to_nested_conjunt special_symbols_declaration .
+
+    RESERVED_CLASSES reduce using rule 35 (parenthesized_expression -> special_symbols_declaration recursive_equivalent_to_nested_conjunt special_symbols_declaration .)
+    $end            reduce using rule 35 (parenthesized_expression -> special_symbols_declaration recursive_equivalent_to_nested_conjunt special_symbols_declaration .)
+    SPECIAL_SYMBOLS reduce using rule 35 (parenthesized_expression -> special_symbols_declaration recursive_equivalent_to_nested_conjunt special_symbols_declaration .)
+
+
+state 111
+
+    (31) recursive_equivalent_to_nested_conjunt -> properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration . equivalent_to_nested_separated
+    (32) recursive_equivalent_to_nested_conjunt -> properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration .
+    (26) equivalent_to_nested_separated -> . reserved_word_declaration equivalent_to_nested_conjunt
+    (63) reserved_word_declaration -> . RESERVED_WORD
+
+    RESERVED_CLASSES reduce using rule 32 (recursive_equivalent_to_nested_conjunt -> properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration .)
+    $end            reduce using rule 32 (recursive_equivalent_to_nested_conjunt -> properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration .)
+    SPECIAL_SYMBOLS reduce using rule 32 (recursive_equivalent_to_nested_conjunt -> properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration .)
+    RESERVED_WORD   shift and go to state 49
+
+    equivalent_to_nested_separated shift and go to state 114
+    reserved_word_declaration      shift and go to state 115
+
+state 112
+
+    (36) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration . special_symbols_declaration special_symbols_declaration
+    (38) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration . special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 116
+
+state 113
+
+    (37) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration . special_symbols_declaration
+    (39) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration . special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 117
+
+state 114
+
+    (31) recursive_equivalent_to_nested_conjunt -> properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration equivalent_to_nested_separated .
+
+    RESERVED_CLASSES reduce using rule 31 (recursive_equivalent_to_nested_conjunt -> properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration equivalent_to_nested_separated .)
+    $end            reduce using rule 31 (recursive_equivalent_to_nested_conjunt -> properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration equivalent_to_nested_separated .)
+    SPECIAL_SYMBOLS reduce using rule 31 (recursive_equivalent_to_nested_conjunt -> properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration equivalent_to_nested_separated .)
+
+
+state 115
+
+    (26) equivalent_to_nested_separated -> reserved_word_declaration . equivalent_to_nested_conjunt
+    (27) equivalent_to_nested_conjunt -> . special_symbols_declaration recursive_equivalent_to_nested_conjunt
+    (28) equivalent_to_nested_conjunt -> . special_symbols_declaration equivalent_to_conjunt_cardi
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    equivalent_to_nested_conjunt   shift and go to state 64
+    special_symbols_declaration    shift and go to state 65
+
+state 116
+
+    (36) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration . special_symbols_declaration
+    (38) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration . special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+    SPECIAL_SYMBOLS shift and go to state 14
+
+    special_symbols_declaration    shift and go to state 118
+
+state 117
+
+    (37) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration .
+    (39) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration . special_symbols_declaration recursive_equivalent_to_nested_conjunt
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+  ! shift/reduce conflict for SPECIAL_SYMBOLS resolved as shift
+    RESERVED_CLASSES reduce using rule 37 (equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration .)
+    $end            reduce using rule 37 (equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration .)
+    SPECIAL_SYMBOLS shift and go to state 14
+
+  ! SPECIAL_SYMBOLS [ reduce using rule 37 (equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration .) ]
+
+    special_symbols_declaration    shift and go to state 119
+
+state 118
+
+    (36) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration .
+    (38) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration . special_symbols_declaration recursive_equivalent_to_nested_conjunt
+    (65) special_symbols_declaration -> . SPECIAL_SYMBOLS
+
+  ! shift/reduce conflict for SPECIAL_SYMBOLS resolved as shift
+    RESERVED_CLASSES reduce using rule 36 (equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration .)
+    $end            reduce using rule 36 (equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration .)
+    SPECIAL_SYMBOLS shift and go to state 14
+
+  ! SPECIAL_SYMBOLS [ reduce using rule 36 (equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration .) ]
+
+    special_symbols_declaration    shift and go to state 120
+
+state 119
+
+    (39) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration . recursive_equivalent_to_nested_conjunt
+    (29) recursive_equivalent_to_nested_conjunt -> . properties_declaration reserved_word_declaration recursive_equivalent_to_nested_conjunt_end
+    (30) recursive_equivalent_to_nested_conjunt -> . properties_declaration reserved_word_declaration equivalent_to_conjunt_cardi
+    (31) recursive_equivalent_to_nested_conjunt -> . properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration equivalent_to_nested_separated
+    (32) recursive_equivalent_to_nested_conjunt -> . properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration
+    (60) properties_declaration -> . PROPERTIES
+
+    PROPERTIES      shift and go to state 37
+
+    recursive_equivalent_to_nested_conjunt shift and go to state 121
+    properties_declaration         shift and go to state 79
+
+state 120
+
+    (38) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration . recursive_equivalent_to_nested_conjunt
+    (29) recursive_equivalent_to_nested_conjunt -> . properties_declaration reserved_word_declaration recursive_equivalent_to_nested_conjunt_end
+    (30) recursive_equivalent_to_nested_conjunt -> . properties_declaration reserved_word_declaration equivalent_to_conjunt_cardi
+    (31) recursive_equivalent_to_nested_conjunt -> . properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration equivalent_to_nested_separated
+    (32) recursive_equivalent_to_nested_conjunt -> . properties_declaration size_of_declaration cardinalities_declaration class_declaration special_symbols_declaration
+    (60) properties_declaration -> . PROPERTIES
+
+    PROPERTIES      shift and go to state 37
+
+    recursive_equivalent_to_nested_conjunt shift and go to state 122
+    properties_declaration         shift and go to state 79
+
+state 121
+
+    (39) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt .
+
+    RESERVED_CLASSES reduce using rule 39 (equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt .)
+    $end            reduce using rule 39 (equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt .)
+    SPECIAL_SYMBOLS reduce using rule 39 (equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt .)
+
+
+state 122
+
+    (38) equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt .
+
+    RESERVED_CLASSES reduce using rule 38 (equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt .)
+    $end            reduce using rule 38 (equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt .)
+    SPECIAL_SYMBOLS reduce using rule 38 (equivalent_to_conjunt_cardi -> data_types_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration cardinalities_declaration special_symbols_declaration special_symbols_declaration special_symbols_declaration recursive_equivalent_to_nested_conjunt .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for RESERVED_CLASSES in state 4 resolved as shift
+WARNING: shift/reduce conflict for RESERVED_CLASSES in state 9 resolved as shift
+WARNING: shift/reduce conflict for RESERVED_CLASSES in state 10 resolved as shift
+WARNING: shift/reduce conflict for RESERVED_CLASSES in state 15 resolved as shift
+WARNING: shift/reduce conflict for RESERVED_CLASSES in state 17 resolved as shift
+WARNING: shift/reduce conflict for RESERVED_CLASSES in state 18 resolved as shift
+WARNING: shift/reduce conflict for RESERVED_CLASSES in state 23 resolved as shift
+WARNING: shift/reduce conflict for RESERVED_CLASSES in state 26 resolved as shift
+WARNING: shift/reduce conflict for SPECIAL_SYMBOLS in state 117 resolved as shift
+WARNING: shift/reduce conflict for SPECIAL_SYMBOLS in state 118 resolved as shift
+WARNING: reduce/reduce conflict in state 33 resolved using rule (equivalent_to_c_classes -> class_declaration)
+WARNING: rejected rule (valid_subclass_of -> reserved_classes_declaration special_symbols_declaration class_declaration) in state 33
+WARNING: reduce/reduce conflict in state 45 resolved using rule (equivalent_to_c_classes -> class_declaration)
+WARNING: rejected rule (valid_disjoint_list -> class_declaration) in state 45
