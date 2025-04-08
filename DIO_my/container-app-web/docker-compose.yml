@@ -1,0 +1,9 @@
+version: "3"
+services:
+  apache:
+    image: httpd
+    ports:
+      - "80:80"
+    volumes:
+      - ./src:/usr/local/app
+    restart: always
