@@ -1,0 +1,19 @@
+{
+  "name": "vanillaunittest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "assert": "^2.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
